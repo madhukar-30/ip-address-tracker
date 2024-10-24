@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [solution URL ](https://github.com/madhukar-30/ip-address-tracker.git)
+- Live Site URL: [site URL ](https://madhukar-30.github.io/ip-address-tracker/)
 
 ## My process
 
