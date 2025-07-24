@@ -3,51 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ip address tracker</title>
+    <title>IP Address Tracker</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
-     <script src="script.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <main>
         <header>
+            <div class="header-bg"></div>
             <h1>IP Address Tracker</h1>
-            <div class="input-container">
-           <input name="ip-input"  placeholder="search for any IP address or domain">
-          <div class="arrow-img"><img src="images/icon-arrow.svg" alt="icon-arrow"></div> 
+            <div class="input-container" id="inputContainer">
+                <input 
+                    name="ip-input" 
+                    id="ipInput"
+                    placeholder="Search for any IP address or domain"
+                    autocomplete="off"
+                    spellcheck="false"
+                >
+                <div class="arrow-img" id="searchButton" role="button" tabindex="0" aria-label="Search">
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                    <div class="loading-spinner"></div>
+                </div>
+                <div class="status-indicator"></div>
             </div>
         </header>
-    <div class="result">
-        <div class="ip-result">
-            <span>
-                IP address
-            </span>
-           <p></p>
-        </div>
-        <div class="location-result">
-            <span>
-             Location
-            </span>
-           <p></p>
-        </div>
-        <div class="timezone-result">
-            <span>
-            Timezone
-            </span>
-           <p></p>
-        </div>
-        <div class="isp-result">
-            <span>
-            ISP
-            </span>
-           <p></p>
-        </div>
-    </div>
 
-    <div id="map">
- 
-    </div>
+        <div class="result" id="resultContainer">
+            <div class="result-item ip-result">
+                <span class="result-label">IP Address</span>
+                <p class="result-value" id="ipValue">—</p>
+            </div>
+            <div class="result-divider"></div>
+            <div class="result-item location-result">
+                <span class="result-label">Location</span>
+                <p class="result-value" id="locationValue">—</p>
+            </div>
+            <div class="result-divider"></div>
+            <div class="result-item timezone-result">
+                <span class="result-label">Timezone</span>
+                <p class="result-value" id="timezoneValue">—</p>
+            </div>
+            <div class="result-divider"></div>
+            <div class="result-item isp-result">
+                <span class="result-label">ISP</span>
+                <p class="result-value" id="ispValue">—</p>
+            </div>
+        </div>
+
+        <div id="map"></div>
+        
+        <!-- Loading overlay -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-content">
+                <div class="loading-circle"></div>
+                <p>Tracking IP address...</p>
+            </div>
+        </div>
     </main>
 </body>
 </html>
